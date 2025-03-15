@@ -1,0 +1,85 @@
+body {
+    background-image: url('images/fondoflores.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Dancing Script', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+h2, h3 {
+    font-weight: bold;
+    font-family: 'Monotype Corsiva', cursive;
+    color: white;
+    text-shadow: 1px 1px 0px #808080, -1px -1px 0px #808080, 
+                 -1px 1px 0px #808080, 1px -1px 0px #808080;
+}
+
+h2 {
+    font-size: 5rem;
+    margin-top: 80px; /* Lo subimos un poco */
+}
+
+h3 {
+    font-size: 4rem;
+    position: relative;
+    top: -40px; /* Lo subimos ligeramente */
+}
+
+/* Contenedor del gato */
+.gato-container {
+    position: relative;
+    display: inline-block;
+    margin-top: -70px; /* Lo subimos un poco más */
+}
+
+/* Imagen del gato con animación */
+.gato {
+    max-width: 500px; 
+    display: block;
+    position: relative;
+    top: -10px; /* Ajustamos la posición */
+    animation: latido 2s infinite ease-in-out;
+}
+
+/* Animación de latido */
+@keyframes latido {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.04);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 3rem;  /* Tamaño más pequeño para pantallas pequeñas */
+        margin-top: 50px; /* Ajustamos el margen */
+    }
+
+    h3 {
+        font-size: 2rem;  /* Tamaño más pequeño */
+        position: relative;
+        top: -30px; /* Ajustamos ligeramente la posición */
+    }
+
+    .gato {
+        max-width: 350px;  /* Reducimos el tamaño del gato */
+        top: -10px; /* Ajustamos la posición */
+    }
+
+    .gato-container {
+        margin-top: -50px;  /* Ajustamos el margen para pantallas pequeñas */
+    }
+}

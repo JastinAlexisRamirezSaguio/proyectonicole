@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACEPTA O MUERE</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    
+    <!-- Enlace externo de fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    
+    <!-- Enlace externo para iconos -->
+    <script src="botonno.js" crossorigin="anonymous"></script>
+    
+    <!-- Enlace externo para diseño web -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Enlace a nuestro CSS -->
+    <link rel="stylesheet" href="style-pregunta.css">
+</head>
+<body>
+    <h2>MÁS TARDE NOS VEMOS Y TE TIRO HARINA</h2>
+    
+    <div class="container">
+        <div class="botones">
+            <button id="yes" class="btn-custom">SÍ</button>
+
+            <script>
+                document.getElementById("yes").addEventListener("click", function() {
+                    localStorage.setItem("mostrarGorritos", "true"); // Marca que se deben mostrar gorritos en FINAL.HTML
+                    window.location.href = "FINAL.HTML";
+                });
+            </script>
+            
+            <button id="no" class="btn-custom">NO</button>
+        </div>
+        
+        <div class="gato-container">
+            <img id="gato" src="images/imagen2.png" alt="Gato Kawaii" class="img-fluid gato">
+        </div>
+    </div>
+
+    <!-- Enlace a nuestro JavaScript -->
+    <script src="botonno.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("animacionActiva") === "true") {
+                localStorage.removeItem("animacionActiva"); // Evita que se repita
+
+                for (let i = 0; i < 20; i++) { // Genera 20 elementos
+                    setTimeout(() => {
+                        crearElemento("images/harina.png"); 
+                        crearElemento("images/huevos.png");
+                    }, i * 100);
+                }
+            }
+
+            function crearElemento(src) {
+                let elemento = document.createElement("img");
+                elemento.src = src;
+                elemento.style.position = "absolute";
+                elemento.style.width = "80px";
+                elemento.style.left = Math.random() * window.innerWidth + "px";
+                elemento.style.top = "-100px";
+                elemento.style.transition = "top 1s ease-in, opacity 0.5s 2s";
+
+                document.body.appendChild(elemento);
+
+                setTimeout(() => {
+                    elemento.style.top = window.innerHeight + "px";
+                }, 10);
+
+                setTimeout(() => {
+                    elemento.style.opacity = "0"; // Se desvanecen
+                }, 2000);
+
+                setTimeout(() => {
+                    elemento.remove(); // Se eliminan del DOM
+                }, 2500);
+            }
+        });
+    </script>
+</body>
+</html>

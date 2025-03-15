@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Nicole</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    
+    <!-- Enlace externo de fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    
+    <!-- Enlace externo para iconos -->
+    <script src="https://kit.fontawesome.com/812c8ee19a.js" crossorigin="anonymous"></script>
+    
+    <!-- Enlace externo para diseño web -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Enlace a nuestro CSS -->
+    <link rel="stylesheet" href="style-index.CSS">
+</head>
+<body>
+    <h2>HOY ES UN DÍA MUY ESPECIAL</h2>
+    <div class="container">
+        <img src="images/princesas.png" alt="Princesas" class="img-fluid princesas">
+        <div class="boton-y-gato">
+            <button id="continuar" class="btn-custom">CONTINUAR</button>
+            <script>
+                document.getElementById("continuar").addEventListener("click", function() {
+                    localStorage.setItem("animacionActiva", "true"); // Guarda en localStorage
+                    window.location.href = "PREGUNTA.HTML"; // Redirige
+                });
+            </script>
+
+            <img src="images/imagen1.png" alt="Gato Kawaii" class="img-fluid gato">
+        </div>
+    </div>
+    <script src="HUEVOS.JS"></script>
+</body>
+</html>

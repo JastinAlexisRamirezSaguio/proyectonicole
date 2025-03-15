@@ -1,0 +1,130 @@
+body {
+    background-image: url(/images/fondoflores.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Monotype Corsiva', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+h2 {
+    position: relative;  /* Mantiene la posición normal sin que se salga */
+    margin-top: 20px;  /* Ajusta la distancia desde arriba */
+    font-size: 4.5rem;
+    font-weight: bold;
+    font-family: 'Monotype Corsiva', cursive;
+    color: white;
+    text-shadow: 1px 1px 0px #808080, -1px -1px 0px #808080, 
+                 -1px 1px 0px #808080, 1px -1px 0px #808080;
+    text-align: center;
+}
+img.princesas {
+    width: 50%; /* Ajusta el tamaño en pantallas grandes */
+    max-width: 500px;
+    /* Evita que se haga muy grande */
+}
+
+img.gato {
+    width: 350px; /* Ajusta el tamaño del gato */
+    animation: moverGato 2s infinite ease-in-out;
+}
+
+
+
+
+button.btn-custom {
+    background-color: #d66183;
+    color: white;
+    border: none;
+    border-radius: 35px;
+    padding: 12px 50px;
+    font-size: 40px;
+    font-family: 'Monotype Corsiva', cursive;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+    width: 500px;
+    animation: latido 1.5s infinite ease-in-out;
+}
+
+button.btn-custom:hover {
+    background-color: #f3d0c9;
+    transform: scale(1.05);
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Permite que los elementos se acomoden en pantallas pequeñas */
+    text-align: center;
+}
+
+.boton-y-gato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Pone los elementos en columna */
+        gap: 20px;
+    }
+
+    img.princesas {
+        margin-left: 0; /* Elimina el margen negativo para que no se salga */
+        width: 90%; /* Ajusta el tamaño en pantallas pequeñas */
+    }
+
+    button.btn-custom {
+        width: 90%; /* Botón más grande y centrado */
+        font-size: 18px; /* Letra más pequeña */ /* Centrar el botón */
+        display: flex; /* Centrar contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    text-align: center; /* Asegurar el centrado del texto */
+    }
+
+    img.gato {
+        width: 190px; /* Reduce el tamaño del gato */
+    }
+
+    h2 {
+        font-size: 3rem; /* Reduce el tamaño del título en pantallas pequeñas */
+    }
+}
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+@keyframes moverGato {
+    0% { transform: translateX(20px); }
+    50% { transform: translateX(-20px); }
+    100% { transform: translateX(20px); }
+}
+@keyframes caer {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.bolsita, .huevo {
+    position: absolute;
+    width: 50px; /* Tamaño ajustable */
+    height: auto;
+    animation: caer 3s linear forwards;
+}

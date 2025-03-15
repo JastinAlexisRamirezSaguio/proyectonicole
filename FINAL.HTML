@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Nicole</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+    <!-- Enlace externo de fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Enlace externo para diseño web -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Enlace a nuestro CSS -->
+    <link rel="stylesheet" href="style-final.css">
+</head>
+<body>
+    <div class="container">
+        <h2>¡FELIZ CUMPLEAÑOS NICOLE!</h2>
+
+        <!-- Contenedor del gato con estrellas -->
+        <div class="gato-container">
+            <img src="images/imagen3.png" alt="Gato Kawaii" class="img-fluid gato">
+        </div>
+
+        <h3>NOS VEMOS LUEGO!!!</h3>
+    </div>
+
+    <!-- Script para hacer que los gorritos caigan -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("mostrarGorritos") === "true") {
+                localStorage.removeItem("mostrarGorritos"); // Evita que se repita
+
+                for (let i = 0; i < 100; i++) { // Genera 30 gorritos
+                    setTimeout(() => {
+                        crearGorrito("images/gorrito.png");
+                    }, i * 100);
+                }
+            }
+
+            function crearGorrito(src) {
+                let gorrito = document.createElement("img");
+                gorrito.src = src;
+                gorrito.style.position = "absolute";
+                gorrito.style.width = "60px";
+                gorrito.style.left = Math.random() * window.innerWidth + "px";
+                gorrito.style.top = "-100px";
+                gorrito.style.transition = "top 1.5s ease-in, opacity 0.5s 2s";
+
+                document.body.appendChild(gorrito);
+
+                setTimeout(() => {
+                    gorrito.style.top = window.innerHeight + "px";
+                }, 10);
+
+                setTimeout(() => {
+                    gorrito.style.opacity = "0"; // Se desvanecen
+                }, 2000);
+
+                setTimeout(() => {
+                    gorrito.remove(); // Se eliminan del DOM
+                }, 2500);
+            }
+        });
+    </script>
+</body>
+</html>
